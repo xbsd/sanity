@@ -1,0 +1,159 @@
+	C-f	Move forward a character
+	C-b	Move backward a character
+
+	M-f	Move forward a word
+	M-b	Move backward a word
+
+	C-n	Move to next line
+	C-p	Move to previous line
+
+	C-a	Move to beginning of line
+	C-e	Move to end of line
+
+	M-a	Move back to beginning of sentence
+	M-e	Move forward to end of sentence
+
+
+C -v or M -v Move forw (C) or back (M) a Screenful
+C -fb or M -fb --> Forw/Back Char (C) or WORD (M)
+C -np -ae -- Next/Prev Beginning/End of LINE
+M -ae -- Beginning/End of Sentence
+
+Only place you'll need M is fb = forw/back WORD or M - v --> back screenful
+
+M < - Beginning of file
+M > - End of file
+
+C -bfnpae
+M -bfae
+
+C-u X C-f --> is repeat C-f X times (Use C-u to indicate you want X repeat)
+
+C-u 8 C-v = Move Up by 8 lines (exception, not a screenful)
+C-u 8 C-v = Move Down by 8 lines (exception, not a screenful)
+C-u X * --> Will insert 8 * at cursor
+
+TO STOP - Use C-g
+
+C-l C-l --> IMPORTANT - Repositions screen so that current cursor is top of page
+
+C-x 1 = Close Window 1
+
+
+<DEL>, C-d = Delete character before and after cursor
+M-DEL, M-d = Delete word before and after cursor
+C-k, M-k = Delete to end of line/sentence
+
+C-SPC = Set Mark, C-W = Kill Marked Text
+C - W Kill
+C - Y Yank (Paste back)
+M - Y IMPORTANT - Yank back from the Ring
+
+C - / Undo
+
+C-z - Suspend Emacs
+%emacs (type in shell) - to resume from where you left off
+
+C -s Forward Search
+C -r Reverse Search
+
+C-x 2 - Split Screen in 2
+C-x o - Switch to the other buffer
+
+C-M-v Scroll the other window
+
+C-x C-f - Find a file
+
+C-x s - save some buffer
+
+C-x C-s Save
+
+	C-x C-f		Find file
+	C-x C-s		Save file
+	C-x s		Save some buffers
+	C-x C-b		List buffers
+	C-x b		Switch buffer
+	C-x C-c		Quit Emacs
+	C-x 1		Delete all but one window
+	C-x u		Undo
+
+
+VERY IMPORTANT
+
+If the computer crashes, you can recover your auto-saved editing by
+finding the file normally (the file you were editing, not the auto
+save file) and then typing M-x recover-file <Return>.  When it asks for
+confirmation, type yes<Return> to go ahead and recover the auto-save
+data.
+
+
+Emacs has many different major modes.  Some of them are meant for
+editing different languages and/or kinds of text, such as Lisp mode,
+Text mode, etc.  At any time one and only one major mode is active,
+and its name can always be found in the mode line just where
+"Fundamental" is now.
+
+Major modes are called major because there are also minor modes.
+Minor modes are not alternatives to the major modes, just minor
+modifications of them.  Each minor mode can be turned on or off by
+itself, independent of all other minor modes, and independent of your
+major mode.  So you can use no minor modes, or one minor mode, or any
+combination of several minor modes.
+
+One minor mode which is very useful, especially for editing
+human-language text, is Auto Fill mode.  When this mode is on, Emacs
+breaks the line in between words automatically whenever you insert
+text and make a line that is too wide.
+
+
+The margin is usually set at 70 characters, but you can change it
+with the C-x f command.  You should give the margin setting you want
+as a numeric argument.
+
+>> Type C-x f with an argument of 20.  (C-u 2 0 C-x f).
+   Then type in some text and see Emacs fill lines of 20
+   characters with it.  Then set the margin back to 70 using
+   C-x f again.
+
+
+* RECURSIVE EDITING LEVELS
+--------------------------
+
+Sometimes you will get into what is called a "recursive editing
+level".  This is indicated by square brackets in the mode line,
+surrounding the parentheses around the major mode name.  For
+example, you might see [(Fundamental)] instead of (Fundamental).
+
+To get out of the recursive editing level, type <ESC> <ESC> <ESC>.
+That is an all-purpose "get out" command.  You can also use it for
+eliminating extra windows, and getting out of the minibuffer.
+
+To use the Help features, type the C-h character, and then a
+character saying what kind of help you want.  If you are REALLY lost,
+type C-h ? and Emacs will tell you what kinds of help it can give.
+If you have typed C-h and decide you do not want any help, just
+type C-g to cancel it.
+
+The most basic HELP feature is C-h c.  Type C-h, the character c, and
+a command character or sequence; then Emacs displays a very brief
+description of the command.
+
+>> Type C-h c C-p.
+
+
+To get more information about a command, use C-h k instead of C-h c.
+
+>> Type C-h k C-p.
+
+C-h f - Describe a function
+C-h a - Apropos, type keyword and emacs will list all commands with word
+
+
+
+
+
+
+
+
+
+	

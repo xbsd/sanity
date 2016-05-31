@@ -1,0 +1,13 @@
+session,env,port,dbDir,srcDir,logDir,taskSet
+rxbg,t,8010,/app/db/RXM,,,
+common,t,8011,,,,
+# END CSV
+
+
+# START DEFS
+# DEFAULT dbDir,/app/db/comm
+# DEFAULT srcDir, /app/db/scr/ENV/SESSION
+# DEFAULT taskSet, 0-15
+# END DEFS
+
+
