@@ -1,8 +1,6 @@
 
 /Common Settings: Logging, Init Functions, Others
 
-\d .app
-
 /Set Env. Vars
 srcDir: {"/app/kdb/src"};
 procFile: {raze x,"/test/comm/proctable.csv"};
