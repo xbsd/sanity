@@ -15,7 +15,7 @@ qArgs: {"-s 16"}
 
 /Screen Process Utilities
 
-createScreen: {system "screen -dm ",x} /Accepts String ("rxbgt")
+createScreen: {system "screen -dm ",x} /Accepts String ("rxbgtest")
 getScreenCount: {system ("screen -ls | grep "),x," | wc -l"}
 sendToScreen: {system raze "screen -S ",x," -p 0 -X stuff \"$(printf \\\\r)",y,"$(printf \\\\r)\""}
 killScreen: {system "screen -ls | grep ",x," | cut -f1 -d'.' | sed 's/\\W//g' | xargs kill -9; screen -wipe;true"}
@@ -39,7 +39,7 @@ removeBl: {ssr[x;" ";""]}
 
 /Get Process Information
 /Procs are of the format xxxxy, where xxxx=name of app and y=t or p
-/Run with getAppParams `rxbgt
+/Run with getAppParams `rxbgtest
 
 /Arg=None, Read process csv
 readProcFile:{file:read0 hsym `$procFile srcDir[]}
@@ -47,7 +47,7 @@ readProcFile:{file:read0 hsym `$procFile srcDir[]}
 /Arg=None, Get Table from process csv file
 getProcs:{ prs:readProcFile[]; csvf: prs where not any prs like/: ("#*";""); coln: 1 + count ss[(1#csvf)0;","]; :`senv xkey update senv:`$((string session),'(string env)) from (coln#"S";enlist ",") 0: csvf }
 
-/Arg=x = senv such as `rxbgt, Get Values from process csv file
+/Arg=x = senv such as `rxbgtest, Get Values from process csv file
 getDefs:{[x] session:-4_string x;
  env:-4#string x;
  prs:readProcFile[];
@@ -58,7 +58,7 @@ getDefs:{[x] session:-4_string x;
  :d
  }
 
-/Arg=Sym=AppName such as `rxbgt, `commont, Get App Parameters
+/Arg=Sym=AppName such as `rxbgtest, `commont, Get App Parameters
 getAppParams:{ prs:getProcs[]; defs: getDefs[x]; thisapp:prs[x]; :$[0=sum not null thisapp;@[defs;key defs;:;`];defs]^thisapp }
 
 getTime:{.z.Z}
@@ -85,9 +85,7 @@ startProc:{
  show msger[x;] "Setting Port ",port:string params`port;
  system "p ",port;
 
- /Load Init File
- /show msger[x;] "Loading Init ",inFile:string params`inFile;
- /system "l ",inFile;
+ /Load Init File -- Not Needed, Infinite Loop with -start
 
  /Load Function File
  show msger[x;] "Loading Functions ",fnFile:string params`fnFile;
